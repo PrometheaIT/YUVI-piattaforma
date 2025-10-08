@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>YUVI - Redirecting...</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // GitHub Pages SPA fallback
+    // Redirect da URL pulito a hash URL
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location));
+
+    // Fallback per URL senza parametri
+    var path = window.location.pathname;
+    if (path && path !== '/YUVI-piattaforma/' && path !== '/YUVI-piattaforma/index.html') {
+      var redirect = path.replace('/YUVI-piattaforma', '');
+      if (redirect.startsWith('/')) redirect = redirect.slice(1);
+      window.location.replace('/YUVI-piattaforma/#/' + redirect);
+    } else if (path === '/YUVI-piattaforma/' || path === '/YUVI-piattaforma/index.html') {
+      window.location.replace('/YUVI-piattaforma/#/');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
